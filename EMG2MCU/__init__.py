@@ -1,0 +1,57 @@
+from .data import import_data, segment_dataset, split_data
+from .features import build_featureset, compute_metrics, extract_td_features, extract_ts_features, normalize_data
+from .models import evaluate_models, model_selection, train_model
+from .pipeline import (
+    ClassificationConfig,
+    DataConfig,
+    EventsConfig,
+    FeatureConfig,
+    NormalizeConfig,
+    PipelineState,
+    PreprocessingConfig,
+    WindowingConfig,
+    automl,
+)
+from .signal import (
+    analyze_onsets,
+    debug_esp32_filter,
+    detect_onset,
+    emg_filter,
+    evaluate_error,
+    find_events,
+    generate_esp32_code,
+    remove_standby,
+    sos_to_biquad_c,
+)
+
+__all__ = [
+    "ClassificationConfig",
+    "DataConfig",
+    "EventsConfig",
+    "FeatureConfig",
+    "NormalizeConfig",
+    "PipelineState",
+    "PreprocessingConfig",
+    "WindowingConfig",
+    "analyze_onsets",
+    "automl",
+    "build_featureset",
+    "compute_metrics",
+    "debug_esp32_filter",
+    "detect_onset",
+    "emg_filter",
+    "evaluate_error",
+    "evaluate_models",
+    "extract_td_features",
+    "extract_ts_features",
+    "find_events",
+    "generate_esp32_code",
+    "import_data",
+    "model_selection",
+    "normalize_data",
+    "remove_standby",
+    "segment_dataset",
+    "sos_to_biquad_c",
+    "split_data",
+    "train_model",
+]

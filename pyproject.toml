@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "EMG2MCU"
+version = "0.1.0"
+description = "EMG processing, AutoML classification, and microcontroller model export"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "catboost",
+    "ipython",
+    "joblib",
+    "lightgbm",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "scipy",
+    "tsfresh",
+    "xgboost",
+]
+
+[tool.setuptools]
+packages = ["EMG2MCU"]

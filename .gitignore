@@ -227,3 +227,4 @@ catboost_info
 
 # Output folder
 output
+output_emg2mcu/
