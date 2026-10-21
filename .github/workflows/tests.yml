@@ -1,0 +1,45 @@
+name: Tests
+
+# Runs pytest for pull requests before they are merged. The release pipeline
+# runs after the merge and does not repeat this matrix.
+
+on:
+  pull_request:
+    paths-ignore:
+      - pyproject.toml
+
+concurrency:
+  group: tests
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Tests (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 - --version 2.4.0
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Configure Poetry
+        run: poetry config virtualenvs.create false
+
+      - name: Install dependencies
+        run: poetry install --with dev
+
+      - name: Run tests
+        run: |
+          pytest -q

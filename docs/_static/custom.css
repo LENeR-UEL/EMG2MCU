@@ -1,0 +1,13 @@
+/* EMG2MCU documentation custom styles. */
+
+:root {
+    /* Keep pydata-sphinx-theme defaults but make sure the brand color
+     * is consistent with the EMG2MCU logo / repo. */
+    --pst-color-primary: #1f6feb;
+}
+
+/* Make code blocks slightly more compact than the default. */
+.rst-content pre.literal-block,
+.rst-content div[class^="highlight"] pre {
+    line-height: 1.4;
+}
