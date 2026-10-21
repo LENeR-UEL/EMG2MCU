@@ -12,10 +12,11 @@ python -m pip install -e .
 ```
 
 Open [EMG2MCU_example.ipynb](./example/EMG2MCU_example.ipynb) from the
-repository root.
-It runs the same example recording and settings as the original notebook, but
-writes its artifacts to the ignored `output_emg2mcu/` directory. The original
-notebook artifacts in `output/` are left untouched for comparison.
+repository root. It generates a deterministic synthetic recording at runtime,
+so no real participant data is needed or included in the repository. The
+synthetic signals demonstrate the software pipeline only and are not
+physiological data. Generated artifacts are written to the ignored
+`output_emg2mcu/` directory.
 
 The main entry point is `EMG2MCU.automl`. Configuration dataclasses and
 lower-level processing, plotting, feature, and model utilities are also
