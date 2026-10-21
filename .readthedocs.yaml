@@ -1,0 +1,25 @@
+# Read the Docs configuration
+# https://docs.readthedocs.io/en/stable/config-file/v2.html
+version: 2
+
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.11"
+
+# Install docs dependencies via a plain requirements file (avoids needing
+# poetry-core to resolve [tool.poetry.extras] on the RTD build servers),
+# then install the package itself in editable mode for autoapi path resolution.
+python:
+  install:
+    - requirements: docs/requirements.txt
+    - method: pip
+      path: .
+
+# Point Sphinx at the docs/ directory.
+# fail_on_warning is intentionally omitted: "Unknown type: placeholder" is a
+# known sphinx-autoapi/astroid limitation that cannot be silenced and does not
+# affect doc quality.  Real warnings are caught by the GitHub Actions CI job.
+sphinx:
+  builder: html
+  configuration: docs/conf.py
