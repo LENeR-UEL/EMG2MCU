@@ -21,3 +21,22 @@ physiological data. Generated artifacts are written to the ignored
 The main entry point is `EMG2MCU.automl`. Configuration dataclasses and
 lower-level processing, plotting, feature, and model utilities are also
 available from their corresponding package modules.
+
+## Documentation
+
+The full API reference, configuration dataclasses, and pipeline examples
+are published on Read the Docs:
+
+- Stable: <https://emg2mcu.readthedocs.io/en/stable/>
+- Latest: <https://emg2mcu.readthedocs.io/en/latest/>
+- Source for the documentation lives in [./docs](./docs); see
+  [./docs/README.md](./docs/README.md) for how to build it locally.
+
+## Development
+
+Tests run on every pull request across Python 3.10, 3.11, and 3.12 via
+[.github/workflows/tests.yml](./.github/workflows/tests.yml). Merging to
+`main` triggers [the release workflow](./.github/workflows/release.yml),
+which auto-bumps the patch version, publishes to PyPI, builds the Sphinx
+docs, and opens a GitHub Release whose body is taken from the merged PR's
+`## Changelog` section.
